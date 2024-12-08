@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update && \
-    apk add bash curl mariadb-connector-c mysql-client pigz rclone
+    apk add bash curl mariadb-client mariadb-connector-c pigz rclone
 
 COPY docker-entrypoint.sh /usr/local/bin/
 

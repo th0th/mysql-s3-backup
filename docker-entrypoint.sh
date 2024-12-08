@@ -21,11 +21,12 @@ MYSQL_USER="${MYSQL_USER:-root}"
 BACKUP_FILE_NAME=$(date +"${MYSQL_DB}-%F_%T.gz")
 
 echo "Dumping the database..."
-mysqldump \
+mariadb-dump \
   --host "${MYSQL_HOST}" \
   --port "${MYSQL_PORT}" \
   --user "${MYSQL_USER}" \
   --password="${MYSQL_PASSWORD}" \
+  --skip-ssl \
   "${MYSQL_DB}" | pigz --fast > "${BACKUP_FILE_NAME}"
 echo "Dumping the database... Done."
 

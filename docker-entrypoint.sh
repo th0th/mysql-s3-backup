@@ -26,7 +26,7 @@ mysqldump \
   --port "${MYSQL_PORT}" \
   --user "${MYSQL_USER}" \
   --password "${MYSQL_PASSWORD}" \
-  "${MYSQL_DATABASE}" | pigz --fast > "${BACKUP_FILE_NAME}"
+  "${MYSQL_DB}" | pigz --fast > "${BACKUP_FILE_NAME}"
 echo "Dumping the database... Done."
 
 echo "Uploading to S3..."
